@@ -1,2 +1,5 @@
 # ihm_project
-eteins la lumiere 
+Project Eteins la lumiere
+
+ADNET Paul
+STEINER Noé
