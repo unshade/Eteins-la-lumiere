@@ -11,7 +11,7 @@ public class Grille extends Observable {
 
     public Grille(){
         taille = 500;
-        c = new Color(156,174,125);
+        c = new Color(62, 128, 85);
     }
 
     public int getTaille() {
