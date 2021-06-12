@@ -10,6 +10,14 @@ import java.util.Observer;
 public class VueGrille extends JPanel implements Observer {
 
     private Grille grille;
+    private static final int TAILLEX = 500;
+    private static final int TAILLEY = 600;
+
+    public VueGrille(){
+        grille = new Grille(this);
+        setPreferredSize(new Dimension(TAILLEX,TAILLEY));
+
+    }
 
     @Override
     public void paintComponents(Graphics g) {
@@ -35,5 +43,13 @@ public class VueGrille extends JPanel implements Observer {
 
     public Grille getGrille() {
         return grille;
+    }
+
+    public static int getTAILLEX() {
+        return TAILLEX;
+    }
+
+    public static int getTAILLEY() {
+        return TAILLEY;
     }
 }

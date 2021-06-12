@@ -3,16 +3,15 @@ package Modele;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Observable;
+import java.util.Observer;
 
-/**
- * Classe qui permet definit les lampes
- */
 public class Grille extends Observable {
 
     private int taille;
     private Color c;
 
-    public Grille(){
+    public Grille(Observer observer){
+        this.addObserver(observer);
         taille = 500;
         c = new Color(62, 128, 85);
     }
