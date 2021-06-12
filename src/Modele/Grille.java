@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Observable;
 
+/**
+ * Classe qui permet definit les lampes
+ */
 public class Grille extends Observable {
 
     private int taille;

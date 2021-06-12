@@ -5,8 +5,17 @@ import Vue.VueGrille;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Classe principale
+ */
 public class Main {
+
+    /**
+     * Main pour lancer le programme
+     * @param args arguments du main
+     */
     public static void main(String[] args) {
+
         Grille g = new Grille();
         VueGrille vg = new VueGrille();
         g.addObserver(vg);
@@ -15,9 +24,10 @@ public class Main {
         Bouton b = new Bouton(g);
         b.setPreferredSize(new Dimension(300,600));
 
-        JFrame frame=new JFrame();
-        frame.add(vg,BorderLayout.EAST);
-        frame.add(b,BorderLayout.WEST);
+        JFrame frame = new JFrame();
+        frame.setLayout(new GridLayout(1, 2));
+        frame.add(b);
+        frame.add(vg);
         frame.setSize(new Dimension(850,600));
         frame.setVisible(true);
 
