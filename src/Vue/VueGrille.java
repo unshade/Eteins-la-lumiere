@@ -25,10 +25,24 @@ public class VueGrille extends JPanel implements Observer {
         int w = grille.getTaille();
         int h = grille.getTaille();
         //g.setColor(new Color(56, 174, 125));
-        g.setColor(grille.getC());
-        g.fillRect(0,0,w,h);
-        g.setColor(Color.black);
-        for (int i = 1; i<6; i++){
+        boolean[][] lampes = grille.getLampe();
+
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (lampes[i][j]) {
+                    g.setColor(new Color(43, 224, 106));
+                }
+                else {
+                    g.setColor(new Color(62, 128, 85));
+                }
+
+                //TODO pol le sinje, trouve pourquoi les cases sont décalées de 1 à l'affichage
+                g.fillRect(i * (w/5),j * (h/5),i * (w/5) ,j * (h/5));
+            }
+        }
+
+        for (int i = 1; i < 6; i++) {
+            g.setColor(Color.black);
             g.drawLine((w/5)*i,0,(w/5)*i,h);
             g.drawLine(0,(h/5)*i,w-1,(h/5)*i);
         }
