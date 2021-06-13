@@ -17,6 +17,13 @@ public class ControleurGrille extends MouseInputAdapter {
     public void mouseClicked(MouseEvent e) {
         super.mouseClicked(e);
         boutons.incrementerCompteur();
-        grille.activer(e.getX(), e.getY());
+        if (grille.isConfig()) {
+            grille.activerConfig(e.getX()/(vg.getWidth()/5), e.getY()/(vg.getHeight()/5));
+        }
+        else {
+            if (grille.isJouer()) {
+                grille.activerJouer(e.getX()/(vg.getWidth()/5), e.getY()/(vg.getHeight()/5));
+            }
+        }
     }
 }

@@ -38,7 +38,7 @@ public class Bouton extends JPanel {
         config.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                modele.config();
+                modele.configurerOnOff();
             }
         });
 

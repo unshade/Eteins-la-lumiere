@@ -30,6 +30,23 @@ public class Grille extends Observable {
         }
     }
 
+    public void activerJouer(int x, int y){
+        if (!config && jouer) {
+            try {
+                lampe[x][y] = true;
+
+                lampe[x+1][y] = true;
+                lampe[x-1][y] = true;
+                lampe[x][y+1] = true;
+                lampe[x][y-1] = true;
+                setChanged();
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("certaines cases n'existent pas");
+            }
+            notifyObservers();
+        }
+    }
+
     public void config(){
         while(!jouer){
             // la case cliquée devient true
@@ -39,16 +56,10 @@ public class Grille extends Observable {
         }
     }
 
-    public void activer(int x, int y){
-        // TODO faire en sorte de généraliser
-        if (x <= this.getTaille()/5 && y <= this.getTaille()/5){
-            lampe[0][0] = true;
-            // tu chopes les 4 souhaitées et tu les mets en couleur
-            lampe[1][0] = true;
-            lampe[0][1] = true;
-            setChanged();
+    public void activerConfig(int x, int y) {
+        if (isConfig()) {
+            lampe[x][y] = true;
         }
-        notifyObservers();
     }
 
     public void random() {
@@ -84,5 +95,13 @@ public class Grille extends Observable {
 
     public boolean[][] getLampe() {
         return this.lampe;
+    }
+
+    public boolean isJouer() {
+        return jouer;
+    }
+
+    public boolean isConfig() {
+        return this.config;
     }
 }
