@@ -40,9 +40,12 @@ public class Grille extends Observable {
     }
 
     public void activer(int x, int y){
+        // TODO faire en sorte de généraliser
         if (x <= this.getTaille()/5 && y <= this.getTaille()/5){
+            lampe[0][0] = true;
             // tu chopes les 4 souhaitées et tu les mets en couleur
-            this.getLampe()[0][0] = true;
+            lampe[1][0] = true;
+            lampe[0][1] = true;
             setChanged();
         }
         notifyObservers();
