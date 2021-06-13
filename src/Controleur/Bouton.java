@@ -43,7 +43,7 @@ public class Bouton extends JPanel {
         random.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                modele.random();
             }
         });
 
