@@ -28,11 +28,10 @@ public class ControleurGrille extends MouseInputAdapter {
         }
     }*/
     public void activer(int x, int y){
-        if (x == grille.getTaille()/5 && y == grille.getTaille()/5){
+        if (x <= grille.getTaille()/5 && y <= grille.getTaille()/5){
             // tu chopes les 4 souhaitées et tu les mets en couleur + foncee
-            // ( redondant fo trouver soluce )
+            grille.getLampe()[0][0] = true;
         }
-
     }
 
     @Override

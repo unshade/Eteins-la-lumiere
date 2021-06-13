@@ -18,12 +18,13 @@ public class Main {
         VueGrille vg = new VueGrille();
         Grille g = new Grille(vg);
         Bouton b = new Bouton(g);
-        b.setPreferredSize(new Dimension(300,600));
+        b.setPreferredSize(new Dimension(300,500));
         JFrame frame = new JFrame();
         frame.setLayout(new BorderLayout());
         frame.add(b, BorderLayout.WEST);
-        frame.add(vg, BorderLayout.EAST);
-        frame.setSize(new Dimension(850,600));
+        frame.add(vg, BorderLayout.CENTER);
+        frame.setSize(new Dimension(815,535));
         frame.setVisible(true);
+        frame.pack();
     }
 }

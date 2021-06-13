@@ -22,9 +22,9 @@ public class Bouton extends JPanel {
      */
     public Bouton(Grille g){
 
-        //initialisation attribus, layout et elements
+        //initialisation attributs, layout et elements
         modele = g;
-        this.setLayout(new GridLayout(5,1));
+        this.setLayout(new GridLayout(6,1));
         JButton config = new JButton("Configurer");
         JButton random = new JButton("Aleatoire");
         JButton jouer = new JButton("Jouer");
