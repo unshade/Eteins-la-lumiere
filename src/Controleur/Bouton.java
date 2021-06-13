@@ -15,6 +15,9 @@ public class Bouton extends JPanel {
      * Grille de lampe
      */
     private Grille modele;
+    private JButton config, random, jouer, quitter;
+    private JLabel counter;
+    private int count;
 
     /**
      * Constructeur des boutons
@@ -25,18 +28,17 @@ public class Bouton extends JPanel {
         //initialisation attributs, layout et elements
         modele = g;
         this.setLayout(new GridLayout(6,1));
-        JButton config = new JButton("Configurer");
-        JButton random = new JButton("Aleatoire");
-        JButton jouer = new JButton("Jouer");
-        JTextArea text = new JTextArea();
-        JButton quitter = new JButton("Quitter");
+        config = new JButton("Configurer");
+        random = new JButton("Aleatoire");
+        jouer = new JButton("Jouer");
+        counter = new JLabel("         Nombre de clics :  0");
+        quitter = new JButton("Quitter");
 
         //Ajout des actions listeners aux elements
-
         config.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                modele.config();
             }
         });
 
@@ -50,7 +52,7 @@ public class Bouton extends JPanel {
         jouer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                modele.jouer();
             }
         });
 
@@ -66,7 +68,16 @@ public class Bouton extends JPanel {
         this.add(config);
         this.add(random);
         this.add(jouer);
-        this.add(text);
+        this.add(counter);
         this.add(quitter);
+    }
+
+    public int getCounter() {
+        return count;
+    }
+
+    public void incrementerCompteur(){
+        count++;
+        counter.setText("         Nombre de clics :  "+count);
     }
 }

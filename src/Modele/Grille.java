@@ -10,6 +10,7 @@ public class Grille extends Observable {
 
     private int taille;
     private boolean[][] lampe;
+    private boolean jouer;
 
     public Grille(Observer observer){
         this.lampe = new boolean[5][5];
@@ -22,20 +23,28 @@ public class Grille extends Observable {
         taille = 500;
     }
 
-    public int getTaille() {
-        return taille;
+    public void jouer(){
+        jouer = true;
+        while(!jeuFini()){
+            // on peut cliquer qq part
+        }
     }
 
-    public boolean[][] getLampe() {
-        return this.lampe;
+    public void config(){
+        while(!jouer){
+            // la case cliquée devient true
+            // TODO c le gange
+            // TODO IL FAUT INTERAGIR AVEC LE CONTROLEUR GRILLE POUR CHOISIR LA CASE SOUHAITEE
+
+        }
     }
 
     public void activer(int x, int y){
         if (x <= this.getTaille()/5 && y <= this.getTaille()/5){
-            // tu chopes les 4 souhaitées et tu les mets en couleur + foncee
+            // tu chopes les 4 souhaitées et tu les mets en couleur
             this.getLampe()[0][0] = true;
+            setChanged();
         }
-        setChanged();
         notifyObservers();
     }
 
@@ -51,18 +60,26 @@ public class Grille extends Observable {
     }
 
     public boolean jeuFini() {
-        boolean res = false;
+        boolean res = true;
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 if (!this.lampe[i][j]) {
                     res = false;
-                    break;
                 }
-                else res = true;
             }
         }
+        if (res){
+            setChanged();
+        }
         notifyObservers();
-        // setChanged(); BUG
         return res;
+    }
+
+    public int getTaille() {
+        return taille;
+    }
+
+    public boolean[][] getLampe() {
+        return this.lampe;
     }
 }

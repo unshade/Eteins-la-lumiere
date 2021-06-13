@@ -10,10 +10,12 @@ import java.util.Observer;
 public class VueGrille extends JPanel implements Observer {
 
     private Grille grille;
+
     private static final int TAILLEX = 500;
     private static final int TAILLEY = 500;
 
     public VueGrille(){
+
         grille = new Grille(this);
         setPreferredSize(new Dimension(TAILLEX,TAILLEY));
     }
