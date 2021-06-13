@@ -49,4 +49,20 @@ public class Grille extends Observable {
         setChanged();
         notifyObservers();
     }
+
+    public boolean jeuFini() {
+        boolean res = false;
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (!this.lampe[i][j]) {
+                    res = false;
+                    break;
+                }
+                else res = true;
+            }
+        }
+        notifyObservers();
+        // setChanged(); BUG
+        return res;
+    }
 }

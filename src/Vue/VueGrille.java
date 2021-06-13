@@ -44,6 +44,10 @@ public class VueGrille extends JPanel implements Observer {
             g.drawLine((w/5)*i,0,(w/5)*i,h);
             g.drawLine(0,(h/5)*i,w-1,(h/5)*i);
         }
+
+        if (grille.jeuFini()) {
+            JOptionPane.showMessageDialog(null, "Bravo, vous avez fini le jeu");
+        }
     }
 
     @Override
